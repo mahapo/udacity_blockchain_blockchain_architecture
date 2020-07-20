@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.5.16;
 
+import "../coffeecore/Ownable.sol";
 import "../coffeeaccesscontrol/ConsumerRole.sol";
 import "../coffeeaccesscontrol/DistributorRole.sol";
 import "../coffeeaccesscontrol/FarmerRole.sol";
@@ -8,6 +9,7 @@ import "../coffeeaccesscontrol/RetailerRole.sol";
 
 // Define a contract 'Supplychain'
 contract SupplyChain is
+    Ownable,
     ConsumerRole,
     DistributorRole,
     FarmerRole,
@@ -73,10 +75,10 @@ contract SupplyChain is
     event Purchased(uint256 upc);
 
     // Define a modifer that checks to see if msg.sender == owner of the contract
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Not owner");
-        _;
-    }
+    // modifier onlyOwner() {
+    //     require(msg.sender == owner, "Not owner");
+    //     _;
+    // }
 
     // Define a modifer that verifies the Caller
     modifier verifyCaller(address _address) {
@@ -171,7 +173,7 @@ contract SupplyChain is
         string memory _originFarmLatitude,
         string memory _originFarmLongitude,
         string memory _productNotes
-    ) public {
+    ) public onlyFarmer {
         // Add the new item as part of Harvest
         items[_upc] = Item({
             sku: sku,
@@ -199,9 +201,10 @@ contract SupplyChain is
     function processItem(uint256 _upc)
         public
         // Call modifier to check if upc has passed previous supply chain stage
-        onlyFarmer
         // Call modifier to verify caller of this function
         harvested(_upc)
+        verifyCaller(items[_upc].ownerID)
+        onlyFarmer
     {
         // Update the appropriate fields
         items[_upc].itemState = State.Processed;
@@ -213,9 +216,10 @@ contract SupplyChain is
     function packItem(uint256 _upc)
         public
         // Call modifier to check if upc has passed previous supply chain stage
-        onlyFarmer
         // Call modifier to verify caller of this function
         processed(_upc)
+        verifyCaller(items[_upc].ownerID)
+        onlyFarmer
     {
         // Update the appropriate fields
         items[_upc].itemState = State.Packed;
@@ -227,9 +231,10 @@ contract SupplyChain is
     function sellItem(uint256 _upc, uint256 _price)
         public
         // Call modifier to check if upc has passed previous supply chain stage
-        onlyFarmer
         // Call modifier to verify caller of this function
         packed(_upc)
+        verifyCaller(items[_upc].ownerID)
+        onlyFarmer
     {
         // Update the appropriate fields
         items[_upc].productPrice = _price;
@@ -245,11 +250,12 @@ contract SupplyChain is
         public
         payable
         // Call modifier to check if upc has passed previous supply chain stage
-        onlyDistributor
         // Call modifer to check if buyer has paid enough
-        forSale(_upc)
         // Call modifer to send any excess ether back to buyer
+        checkValue(_upc)
+        forSale(_upc)
         paidEnough(items[_upc].productPrice)
+        onlyDistributor
     {
         // Update the appropriate fields - ownerID, distributorID, itemState
         items[_upc].ownerID = owner;
