@@ -2,17 +2,38 @@
 
 This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
 
-## Project write-up
+## Contract Addresses (Ropsten network)
 
-![sequence](images/uml_sequence.png)
-![state_diagram](images/uml_state_diagram.png)
-![class_diagram](images/uml_class_diagram.png)
+- FarmerRole: [0x21898eD4e7780C32e2D96c815974060685B8365D](https://ropsten.etherscan.io/address/0x21898eD4e7780C32e2D96c815974060685B8365D)
+- DistributorRole: [0x4A94207DE86cd46c0612a4d94b3a19BAb57bf895](https://ropsten.etherscan.io/address/0x4A94207DE86cd46c0612a4d94b3a19BAb57bf895)
+- RetailerRole: [0x5DD68217Dc2F83985804Fb4faF5AA798CFD55724](https://ropsten.etherscan.io/address/0x5DD68217Dc2F83985804Fb4faF5AA798CFD55724)
+- ConsumerRole: [0xf0A87AC007280931251d55414A427Cb66D5DAb7F](https://ropsten.etherscan.io/address/0xf0A87AC007280931251d55414A427Cb66D5DAb7F)
+- SupplyChain: [0x018c34b18DDB3477dBA28A2D9508d2b65B1dE6bf](https://ropsten.etherscan.io/address/0x018c34b18DDB3477dBA28A2D9508d2b65B1dE6bf)
 
 ## Libraries
+
 - Truffle (v5.1.32)
 - Solidity (v0.5.16)
 - Node (v12.10.0)
 - Web3.js
+
+## Project write-up
+
+### Activity
+
+![activity](images/uml_activity.png)
+
+### Sequence
+
+![sequence](images/uml_sequence.png)
+
+### State
+
+![state](images/uml_state.png)
+
+### Class
+
+![class](images/uml_class.png)
 
 The DApp User Interface when running should look like...
 
@@ -23,7 +44,6 @@ The DApp User Interface when running should look like...
 ![truffle test](images/ftc_product_details.png)
 
 ![truffle test](images/ftc_transaction_history.png)
-
 
 ## Getting Started
 
@@ -47,7 +67,7 @@ Clone this repository:
 git clone https://github.com/udacity/nd1309/tree/master/course-5/project-6
 ```
 
-Change directory to ```project-6``` folder and install all requisite npm packages (as listed in ```package.json```):
+Change directory to `project-6` folder and install all requisite npm packages (as listed in `package.json`):
 
 ```
 cd project-6
@@ -74,7 +94,7 @@ Your terminal should look something like this:
 
 ![truffle test](images/truffle_compile.png)
 
-This will create the smart contract artifacts in folder ```build\contracts```.
+This will create the smart contract artifacts in folder `build\contracts`.
 
 Migrate smart contracts to the locally running blockchain, ganache-cli:
 
@@ -104,11 +124,10 @@ npm run dev
 
 ## Built With
 
-* [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
-* [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol
-to make the web faster, safer, and more open.
-* [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
-
+- [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
+- [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol
+  to make the web faster, safer, and more open.
+- [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
 
 ## Authors
 
@@ -116,7 +135,7 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## Acknowledgments
 
-* Solidity
-* Ganache-cli
-* Truffle
-* IPFS
+- Solidity
+- Ganache-cli
+- Truffle
+- IPFS
