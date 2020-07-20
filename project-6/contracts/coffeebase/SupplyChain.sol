@@ -203,8 +203,7 @@ contract SupplyChain is
         // Call modifier to check if upc has passed previous supply chain stage
         // Call modifier to verify caller of this function
         harvested(_upc)
-        verifyCaller(items[_upc].ownerID)
-        onlyFarmer
+        verifyCaller(items[_upc].originFarmerID)
     {
         // Update the appropriate fields
         items[_upc].itemState = State.Processed;
@@ -218,8 +217,7 @@ contract SupplyChain is
         // Call modifier to check if upc has passed previous supply chain stage
         // Call modifier to verify caller of this function
         processed(_upc)
-        verifyCaller(items[_upc].ownerID)
-        onlyFarmer
+        verifyCaller(items[_upc].originFarmerID)
     {
         // Update the appropriate fields
         items[_upc].itemState = State.Packed;
@@ -233,8 +231,7 @@ contract SupplyChain is
         // Call modifier to check if upc has passed previous supply chain stage
         // Call modifier to verify caller of this function
         packed(_upc)
-        verifyCaller(items[_upc].ownerID)
-        onlyFarmer
+        verifyCaller(items[_upc].originFarmerID)
     {
         // Update the appropriate fields
         items[_upc].productPrice = _price;
@@ -255,7 +252,6 @@ contract SupplyChain is
         checkValue(_upc)
         forSale(_upc)
         paidEnough(items[_upc].productPrice)
-        onlyDistributor
     {
         // Update the appropriate fields - ownerID, distributorID, itemState
         items[_upc].ownerID = owner();
