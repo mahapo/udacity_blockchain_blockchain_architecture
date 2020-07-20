@@ -4,11 +4,11 @@ This repository containts an Ethereum DApp that demonstrates a Supply Chain flow
 
 ## Contract Addresses (Ropsten network)
 
-- FarmerRole: [0x21898eD4e7780C32e2D96c815974060685B8365D](https://ropsten.etherscan.io/address/0x21898eD4e7780C32e2D96c815974060685B8365D)
-- DistributorRole: [0x4A94207DE86cd46c0612a4d94b3a19BAb57bf895](https://ropsten.etherscan.io/address/0x4A94207DE86cd46c0612a4d94b3a19BAb57bf895)
-- RetailerRole: [0x5DD68217Dc2F83985804Fb4faF5AA798CFD55724](https://ropsten.etherscan.io/address/0x5DD68217Dc2F83985804Fb4faF5AA798CFD55724)
-- ConsumerRole: [0xf0A87AC007280931251d55414A427Cb66D5DAb7F](https://ropsten.etherscan.io/address/0xf0A87AC007280931251d55414A427Cb66D5DAb7F)
-- SupplyChain: [0x018c34b18DDB3477dBA28A2D9508d2b65B1dE6bf](https://ropsten.etherscan.io/address/0x018c34b18DDB3477dBA28A2D9508d2b65B1dE6bf)
+- FarmerRole: [0x8947C8FECeEeCbCbFc817969e354019F46C49cDB](https://ropsten.etherscan.io/address/0x8947C8FECeEeCbCbFc817969e354019F46C49cDB)
+- DistributorRole: [0x86f7bEa2eB874b0eeB792a75f358bcf2f25Bb827](https://ropsten.etherscan.io/address/0x86f7bEa2eB874b0eeB792a75f358bcf2f25Bb827)
+- RetailerRole: [0x72bb46DB222083a7Eb9BECdd1CDf934CeAf38a13](https://ropsten.etherscan.io/address/0x72bb46DB222083a7Eb9BECdd1CDf934CeAf38a13)
+- ConsumerRole: [0x0ed8a38E57017aC02D4B0c857dCE02Dc34D330F1](https://ropsten.etherscan.io/address/0x0ed8a38E57017aC02D4B0c857dCE02Dc34D330F1)
+- SupplyChain: [0xbbFeA30C722AF9122e45C0D6Ecb81Dd574F381F5](https://ropsten.etherscan.io/address/0xbbFeA30C722AF9122e45C0D6Ecb81Dd574F381F5)
 
 ## Libraries
 
@@ -37,7 +37,7 @@ This repository containts an Ethereum DApp that demonstrates a Supply Chain flow
 ## Deployment
 
 ```
-truffle(develop)> truffle deploy --network ropsten
+truffle(ropsten)> truffle deploy --network ropsten --reset
 
 Compiling your contracts...
 ===========================
@@ -49,114 +49,143 @@ Starting migrations...
 ======================
 > Network name:    'ropsten'
 > Network id:      3
-> Block gas limit: 8000029 (0x7a121d)
+> Block gas limit: 0x7a121d
+
+
+1_initial_migration.js
+======================
+
+   Replacing 'Migrations'
+   ----------------------
+   > transaction hash:    0x3f0009e914a345fd9986865932409da8a7e7de836e10b1b16e8a40150691e9e0
+   > Blocks: 1            Seconds: 12
+   > contract address:    0x7ea8900CE9a9D464eB5eE5Ab8966Ce56B8A99550
+   > block number:        8333074
+   > block timestamp:     1595261927
+   > account:             0x28d06E693F5fbA5C8821cD6Ebf2f5245DCb6bfB6
+   > balance:             5.819363329
+   > gas used:            225237
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00450474 ETH
+
+   Pausing for 2 confirmations...
+   ------------------------------
+   > confirmation number: 1 (block: 8333075)
+   > confirmation number: 2 (block: 8333076)
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00450474 ETH
 
 
 2_deploy_contracts.js
 =====================
 
-   Deploying 'FarmerRole'
+   Replacing 'FarmerRole'
    ----------------------
-   > transaction hash:    0x95f6c99758a4f0f922430666475aa070a853f4865523a0d357b3b83574758ff3
-   > Blocks: 1            Seconds: 20
-   > contract address:    0x21898eD4e7780C32e2D96c815974060685B8365D
-   > block number:        8328480
-   > block timestamp:     1595203190
+   > transaction hash:    0x3cfda2c21c75e2a356e7c90e7d351d4f4f88d6989f09329f17e41797e52f30be
+   > Blocks: 1            Seconds: 36
+   > contract address:    0x8947C8FECeEeCbCbFc817969e354019F46C49cDB
+   > block number:        8333079
+   > block timestamp:     1595261978
    > account:             0x28d06E693F5fbA5C8821cD6Ebf2f5245DCb6bfB6
-   > balance:             5.931180469
-   > gas used:            328218 (0x5021a)
+   > balance:             5.811951709
+   > gas used:            328218
    > gas price:           20 gwei
    > value sent:          0 ETH
    > total cost:          0.00656436 ETH
 
    Pausing for 2 confirmations...
    ------------------------------
-truffle(develop)>    > confirmation number: 3 (block: 8328483)
+   > confirmation number: 1 (block: 8333080)
+   > confirmation number: 2 (block: 8333081)
 
-   Deploying 'DistributorRole'
+   Replacing 'DistributorRole'
    ---------------------------
-   > transaction hash:    0x43d3b3002ac9421c434e2de1199c42596f0f6e51e09d8139239430cb0c2a572f
-   > Blocks: 1            Seconds: 36
-   > contract address:    0x4A94207DE86cd46c0612a4d94b3a19BAb57bf895
-   > block number:        8328485
-   > block timestamp:     1595203243
+   > transaction hash:    0x4e5d284f88052bd801ab71dc3853d41f4f8e81acc315e9fe8627765fc262ce51
+   > Blocks: 1            Seconds: 16
+   > contract address:    0x86f7bEa2eB874b0eeB792a75f358bcf2f25Bb827
+   > block number:        8333083
+   > block timestamp:     1595262090
    > account:             0x28d06E693F5fbA5C8821cD6Ebf2f5245DCb6bfB6
-   > balance:             5.924615149
-   > gas used:            328266 (0x5024a)
+   > balance:             5.805386389
+   > gas used:            328266
    > gas price:           20 gwei
    > value sent:          0 ETH
    > total cost:          0.00656532 ETH
 
    Pausing for 2 confirmations...
    ------------------------------
-   > confirmation number: 1 (block: 8328486)
-   > confirmation number: 2 (block: 8328487)
+   > confirmation number: 1 (block: 8333084)
+   > confirmation number: 2 (block: 8333085)
 
-   Deploying 'RetailerRole'
+   Replacing 'RetailerRole'
    ------------------------
-   > transaction hash:    0x09c445277e0607d4dd7d0cb946e35b076d77fb76f48989a57fdf2c85c803d22b
-   > Blocks: 0            Seconds: 12
-   > contract address:    0x5DD68217Dc2F83985804Fb4faF5AA798CFD55724
-   > block number:        8328488
-   > block timestamp:     1595203304
+   > transaction hash:    0x4bdb034dcd7c481e57b05c4f594c5de9f6819ddae6b7a3723a2274077921bdae
+   > Blocks: 1            Seconds: 44
+   > contract address:    0x72bb46DB222083a7Eb9BECdd1CDf934CeAf38a13
+   > block number:        8333087
+   > block timestamp:     1595262184
    > account:             0x28d06E693F5fbA5C8821cD6Ebf2f5245DCb6bfB6
-   > balance:             5.918050549
-   > gas used:            328230 (0x50226)
+   > balance:             5.798821789
+   > gas used:            328230
    > gas price:           20 gwei
    > value sent:          0 ETH
    > total cost:          0.0065646 ETH
 
    Pausing for 2 confirmations...
    ------------------------------
-   > confirmation number: 1 (block: 8328489)
-   > confirmation number: 2 (block: 8328490)
+   > confirmation number: 1 (block: 8333088)
+   > confirmation number: 2 (block: 8333089)
 
-   Deploying 'ConsumerRole'
+   Replacing 'ConsumerRole'
    ------------------------
-   > transaction hash:    0xc36352c42bd90b86d370ea4389f90dcf4050b0c8053a9806d9ac19a17630a7a4
-   > Blocks: 1            Seconds: 8
-   > contract address:    0xf0A87AC007280931251d55414A427Cb66D5DAb7F
-   > block number:        8328492
-   > block timestamp:     1595203345
+   > transaction hash:    0xb5ccd5dc4d2e1ed956bd331b12899ff1a3e21fc1eb56482f848a3baaa5efb897
+   > Blocks: 0            Seconds: 20
+   > contract address:    0x0ed8a38E57017aC02D4B0c857dCE02Dc34D330F1
+   > block number:        8333090
+   > block timestamp:     1595262229
    > account:             0x28d06E693F5fbA5C8821cD6Ebf2f5245DCb6bfB6
-   > balance:             5.911485709
-   > gas used:            328242 (0x50232)
+   > balance:             5.792256949
+   > gas used:            328242
    > gas price:           20 gwei
    > value sent:          0 ETH
    > total cost:          0.00656484 ETH
 
    Pausing for 2 confirmations...
    ------------------------------
-   > confirmation number: 1 (block: 8328493)
-   > confirmation number: 2 (block: 8328494)
+   > confirmation number: 1 (block: 8333091)
+   > confirmation number: 2 (block: 8333092)
 
-   Deploying 'SupplyChain'
+   Replacing 'SupplyChain'
    -----------------------
-   > transaction hash:    0x7f5c0bf8b3a921783389d0ad0b17d381d50f8e7574f3bc4d89cd0e3887223033
-   > Blocks: 0            Seconds: 4
-   > contract address:    0x018c34b18DDB3477dBA28A2D9508d2b65B1dE6bf
-   > block number:        8328495
-   > block timestamp:     1595203407
+   > transaction hash:    0x8e2e23120ce2f577496e21a9359ce054d0f75662fe6f643774505726d610ad86
+   > Blocks: 2            Seconds: 16
+   > contract address:    0xbbFeA30C722AF9122e45C0D6Ecb81Dd574F381F5
+   > block number:        8333095
+   > block timestamp:     1595262273
    > account:             0x28d06E693F5fbA5C8821cD6Ebf2f5245DCb6bfB6
-   > balance:             5.856026449
-   > gas used:            2772963 (0x2a4fe3)
+   > balance:             5.730529669
+   > gas used:            3086364
    > gas price:           20 gwei
    > value sent:          0 ETH
-   > total cost:          0.05545926 ETH
+   > total cost:          0.06172728 ETH
 
    Pausing for 2 confirmations...
    ------------------------------
-   > confirmation number: 1 (block: 8328496)
-   > confirmation number: 2 (block: 8328497)
+   > confirmation number: 1 (block: 8333096)
+   > confirmation number: 2 (block: 8333097)
 
    > Saving migration to chain.
    > Saving artifacts
    -------------------------------------
-   > Total cost:          0.08171838 ETH
+   > Total cost:           0.0879864 ETH
 
 
 Summary
 =======
-> Total deployments:   5
-> Final cost:          0.08171838 ETH
+> Total deployments:   6
+> Final cost:          0.09249114 ETH
 ```
